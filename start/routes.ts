@@ -83,3 +83,8 @@ Route.get('/ipaddress', async ({ request, response }) => {
    const yourIp = request.ip()
    response.send({ dudeitstyourip : `your Ip is : ${yourIp}` }, true)
 })
+
+
+Route.get('/test-signature', async () => {
+  return "this is valid"
+}).mustBeSigned()
