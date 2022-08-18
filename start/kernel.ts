@@ -22,7 +22,14 @@ import Server from '@ioc:Adonis/Core/Server'
 */
 Server.middleware.register([
   () => import('@ioc:Adonis/Core/BodyParser'),
+  () => import('App/Middleware/LogRequest'),
+ 
 ])
+
+// Server.middleware.registerNamed({
+//   bodyParser: () => import('@ioc:Adonis/Core/BodyParser'),
+//   logRequest: () => import('App/Middleware/LogRequest'),
+// })
 
 /*
 |--------------------------------------------------------------------------
