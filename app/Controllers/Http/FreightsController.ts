@@ -1,9 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class YashaTestsController {
-  public async index(ctx : HttpContextContract) {
-    return ctx.response.json("testing json")
-  }
+export default class FreightsController {
+  public async index({}: HttpContextContract) {}
 
   public async create({}: HttpContextContract) {}
 

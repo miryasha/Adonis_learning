@@ -18,8 +18,9 @@
 |
 */
 
-import { Request } from '@adonisjs/core/build/standalone'
+///import { Request } from '@adonisjs/core/build/standalone'
 import Route from '@ioc:Adonis/Core/Route'
+import PostsController from 'App/Controllers/Http/PostsController'
 
 
 import './login/logins'
@@ -33,11 +34,15 @@ Route.get('/test', async (ctx) => {
   return ctx.view.render("TestingForLearning")
 })
 
-Route.get('/ctx', async (ctx) => {
-  ctx.response.json("testing json")
-})
 
-Route.on('/yasha').redirectToPath("https://www.trin.net/home/default.aspx")
+
+
+//moved inside YahsaTestController
+Route.get('/ctx', 'YashaTestsController.index');
+
+
+
+Route.on('/yasha').redirectToPath("https://www.trin.net/home/default.aspx");
 
 Route.get('/productId/:id', async ({ params }) => {
   return `This is your Id ${params.id}`
@@ -88,3 +93,10 @@ Route.get('/ipaddress', async ({ request, response }) => {
 Route.get('/test-signature', async () => {
   return "this is valid"
 }).mustBeSigned()
+
+
+
+
+Route.group(()=>{
+  Route.resource('freights', 'FreightController')
+}).as('inventory');
