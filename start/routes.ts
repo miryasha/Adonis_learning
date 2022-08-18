@@ -98,5 +98,6 @@ Route.get('/test-signature', async () => {
 
 
 Route.group(()=>{
-  Route.resource('freights', 'FreightController')
-}).as('inventory');
+  Route.resource('freights', 'FreightController').except(['create', 'edit'])
+  Route.resource('freights.comments', 'commentsController')
+}).as('inventory')
