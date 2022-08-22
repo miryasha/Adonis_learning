@@ -23,6 +23,8 @@ class DateService {
       return dateTime
     }
 
+
+    // none static method is good when we whant to store datat in the calssitself
     public toDate(dateTime: DateTime = DateTime.now(), format: string = this.defaultFormat) {
       this.count += 1
       console.log(this.count)
